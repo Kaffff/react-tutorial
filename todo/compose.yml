@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 services:
   todoapp:
     image: node:16.13-alpine
     working_dir: /app
     tty: true
     ports:
-      - "3001:3001"
+      - '13001:13001'
     volumes:
-      - ".:/app"
+      - '.:/app'
     command: sh -c "npm install && npm run dev"
