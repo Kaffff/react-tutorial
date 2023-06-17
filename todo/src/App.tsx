@@ -1,3 +1,4 @@
+import { Box, Button, Stack, TextField } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -15,17 +16,21 @@ export const App = () => {
     setTodoItemList(removedList);
   };
   return (
-    <div>
-      <input {...form.register('todoItem')} ></input>
-      <button onClick={handleClick}>追加</button>
+    <Stack m={4} alignItems="center">
+      <Stack direction="row" spacing={1}>
+        <TextField {...form.register('todoItem')} ></TextField>
+        <Button variant="contained" onClick={handleClick}>追加</Button>
+      </Stack>
       <ol>
         {
           todoItemList.map((todoItem)=> (
           <li key = {todoItem}>{todoItem}
-          <button onClick = {() => handleDeleteItem(todoItem)}>削除</button>
+            <Button color="error" onClick = {() => handleDeleteItem(todoItem)}>
+              削除
+            </Button>
           </li>
         ))}
       </ol>
-    </div>
+    </Stack>
   );
 };
